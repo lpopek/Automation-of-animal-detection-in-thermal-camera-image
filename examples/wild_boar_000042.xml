@@ -1,0 +1,26 @@
+<annotation>
+	<folder>photo</folder>
+	<filename>wild_boar_000042.jpg</filename>
+	<path>./dataset_update/wild_boar/photo/wild_boar_000042.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>767</width>
+		<height>439</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>wild_boar</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>174</xmin>
+			<ymin>88</ymin>
+			<xmax>482</xmax>
+			<ymax>286</ymax>
+		</bndbox>
+	</object>
+</annotation>

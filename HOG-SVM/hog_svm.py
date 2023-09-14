@@ -63,12 +63,12 @@ def get_clf():
     return model, animal_names_dict
 
 def check_photo(model, animals, file_name):
-    if not os.path.exists(f'HOG-SVM/examples/{file_name}.jpg'):
+    if not os.path.exists(f'examples/{file_name}.jpg'):
         raise FileNotFoundError('[Error]: File with image not found.')
-    img_ = cv2.imread(f'HOG-SVM/examples/{file_name}.jpg')
-    if not os.path.exists(f'HOG-SVM/examples/{file_name}.xml'):
+    img_ = cv2.imread(f'examples/{file_name}.jpg')
+    if not os.path.exists(f'examples/{file_name}.xml'):
         raise FileNotFoundError('[Error]: File with reference bbox not found.')
-    bbox_list = convert_xml2yolo(f'HOG-SVM/examples/{file_name}.xml')
+    bbox_list = convert_xml2yolo(f'examples/{file_name}.xml')
     roi_proposals = find_ROI.get_falzenszwalb_roi(img_)
     roi_to_check = find_ROI.get_roi(img_, roi_proposals)
     animals_checked = []

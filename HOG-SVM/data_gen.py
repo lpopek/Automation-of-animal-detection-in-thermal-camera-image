@@ -15,7 +15,7 @@ def change_format_into_jpg(img):
     pass
     
 def resize_img(species_name):
-    path, dirs, files = next(os.walk(f"./data_set/128x128/{species_name}"))
+    path, dirs, files = next(os.walk(f"./128x128/{species_name}"))
     print(path)
     file_count = len(files)
     for i in range(1, file_count + 1):
@@ -36,7 +36,7 @@ def translate_img(img, x, y):
     if(len(img.shape) > 2):
         rows,cols,channel = img.shape
     else:
-        raise ValueError("Obraz nie ma 3 kanałów\n")
+        raise ValueError("No three channels\n")
     trans_img = cv.warpAffine(img, M,(cols,rows))
     return trans_img[x:, y:, ]
 
@@ -58,8 +58,3 @@ def show_result(img, img_proccesed):
     ax[1].imshow(img_proccesed)
     plt.show()
     return True
-
-if __name__ == "__main__":
-    img = cv.imread('.\photos_HOG\img_100.jpg')
-    img_ = img_gen(img)
-    show_result(img, img_)

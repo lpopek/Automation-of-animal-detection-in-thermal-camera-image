@@ -1,16 +1,10 @@
-from PIL.Image import NONE
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import numpy as np
 import cv2 as cv
-from numpy.core.fromnumeric import shape
-from skimage.segmentation import felzenszwalb, slic, quickshift
-from skimage.segmentation import mark_boundaries
-from skimage.util import img_as_float
+from skimage.segmentation import felzenszwalb
 from skimage.measure import regionprops
-from plot import plot_img
 from random import randint
-import os
 borderType = cv.BORDER_REPLICATE
 
 colors = ['red', 'green']
