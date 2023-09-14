@@ -37,20 +37,13 @@ def classify_single_img(img_test, animal_names, model):
     #plot_img(img_test, title=title)
     return model.predict(l)[0]
 
-
 def adjust_gamma(image, gamma=1.0):
-    # build a lookup table mapping the pixel values [0, 255] to their adjusted gamma values
     invGamma = 1.0/gamma
     table = np.array([((i / 255.0) ** invGamma) * 255 for i in np.arange(0,256)]).astype("uint8")
-    #apply gamma correction using LUT
     return cv2.LUT(image, table)
 
 def get_clf():
     PATH = './dataset/128x128/'
-
-
-
-
     data = []
     labels = []
     dataset = []
@@ -63,7 +56,6 @@ def get_clf():
             continue
         im_listing = os.listdir(PATH + str(folder))
         samples_num = size(im_listing)
-
         for file in im_listing:
             #img = Image.open(PATH + str(folder) + "/" + file)
             #gray = img.convert('L')
@@ -75,21 +67,14 @@ def get_clf():
                 print(fd)
                 print(PATH + str(folder) + "/" + file)
             labels.append(i)
-        
         animal_names_dict[i] = folder.replace('_', ' ')
         animal_names_list.append(folder.replace('_', ' '))
         i = i + 1
-
     le = LabelEncoder()
     labels = le.fit_transform(labels)
-
     for array in data:
-        #print(size(array))
         dataset.append(array)
-
     (train_data, test_data, train_labels, test_labels) = train_test_split(dataset, labels, test_size=0.3, random_state=50)
-
-    #model = SVC(kernel='rbf', probability=True)
     model = LinearSVC()
     model.fit(train_data, train_labels)
     os.chdir(REPO_PATH)
@@ -113,8 +98,6 @@ def check_aMP(model, animals):
             for item in roi_to_check:
                 animal = classify_single_img(item, animals, model)
                 animals_checked.append(animal)
-            #find_ROI.mark_regions(img_, roi_proposals, animals=animals_checked)
-            #find_ROI.predicted_to_file(file.replace(".jpg", ".txt"), animals_checked, roi_proposals, img_)
 
 def check_and_show_random_photo(model, animals):
     r = random.random()
