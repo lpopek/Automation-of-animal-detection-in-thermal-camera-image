@@ -18,7 +18,7 @@ colors = ['red', 'green']
 animals_names = ['deer', 'wild_boar']
 
 
-def mark_regions(img, segments, animals=None,  animal_names_dict=None):
+def mark_regions(img, segments, animals=None, reference_bbox=None):
     fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(6, 6))
     ax.imshow(img)
     i = 0 
@@ -33,6 +33,11 @@ def mark_regions(img, segments, animals=None,  animal_names_dict=None):
                                             fill=False, edgecolor='green',label="wild boar", linewidth=2)
             ax.add_patch(rect)
             i += 1
+    for bbox in reference_bbox:
+        minc, minr, maxc, maxr = bbox
+        rect = mpatches.Rectangle((minc, minr), maxc - minc, maxr - minr,
+                                            fill=False, edgecolor='blue', linewidth=2)
+        ax.add_patch(rect)
     ax.legend()
     plt.show()
 

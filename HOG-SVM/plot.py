@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+import matplotlib as plt
 
 def plot_img(img, title='default', grey=True, legend=None):
     if grey is True:
