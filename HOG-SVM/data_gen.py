@@ -3,7 +3,6 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import random
-import sklearn
 
 def get_file_name(species_name, number, zeros_on_begin=4):
     # print(zeros_on_begin - len(str(number)))
