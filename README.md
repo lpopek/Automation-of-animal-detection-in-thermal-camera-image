@@ -46,18 +46,24 @@ There are two files with .xls bounding-boxes to use. If Someone want to use own 
 - hog_svm.py - main file responsible for training solution
 - plot.py - contains method to plot using matplotlib
 - generate_ground_truth.py - contains method to transform .xml files to YOLO cordinates, which are easier to mark on image
-- 128x128 - catalog with slightly decresed number (5 by class) of samples for training.
+- 128x128 - catalog with samples for training.
 
 ## Faster R-CNN
 
 ## YOLOv3
 
+Most existing object detection solutions rely on performing classification in multiple areas of the image, which leads to slower speeds. To solve this problem, the YOLO architecture was developed, which is an acronym for the English words "You Only Look Once." The YOLO architecture is one of the most popular and efficient methods for real-time object detection.
+
+### Short description of files used
+
+- YOLOv3.ipynb - the notebook in which the model was trained and then assesed. The notebook is a little obsolet (especially paths), but contains obtained results (on old google account) during training. For training use this: https://drive.google.com/file/d/1eIC0RqhAht7wTscTmafNWt3p6zQDStwv/view?usp=sharing
+
 ## YOLOv5
 
-As a result of preliminary tests, it was clearly demonstrated that neural architectures show higher detection performance compared to classical methods. The next step was to try to optimize the learning process so as to improve the results in terms of learning time as well as accuracy. For further testing, the YOLOv5 architecture was selected.
+As a result of preliminary tests, it was clearly demonstrated that neural architectures show higher detection performance compared to classical methods. The next step was to try to optimize the learning process so as to improve the results in terms of learning time as well as accuracy. For further testing, the YOLOv5 architecture was selected. In model catalog it is stored the trained .pt file with model to load.
 
 ### Short description of files used
 
 - OldDataset2YoloFormat.ipynb - the notebook created in terms of converting dataset structure from xmls to YOLO format.
-- YOLOv5_baseline_dataset.ipynb - the main notebook utilased for training solution on different hyperparamters. Becouse idea was eveolving never atually was, automatised as gridsearch in for loop.
+- YOLOv5_baseline_dataset.ipynb - the main notebook utilased for training solution on different hyperparamters. Becouse idea was evolving never atually was, automatised as gridsearch in for loop.
 - Plot_Yolov5_results.ipynb - the notebook reponsible for ploting results.
