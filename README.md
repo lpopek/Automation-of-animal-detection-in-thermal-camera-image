@@ -50,6 +50,12 @@ There are two files with .xls bounding-boxes to use. If Someone want to use own 
 
 ## Faster R-CNN
 
+The architecture consists of 2 parts. The first, and the one that distinguishes it from previous generations, is the Region of Interest Generation Network (RPN). It is a separate architecture that generates proposals of different scales and proportions. In short, the RPN ranks selected region fields and proposes those most likely to contain objects, attaching anchor boxes to them. An anchor box is a possible future bounding box. It can have different aspect ratios and scales. In the default configuration of Faster R-CNN, 9 anchor boxes are tried on at one selected image location.
+
+### Short description of files used
+
+- FasterRCNNv3.ipynb - to be uploaded.
+
 ## YOLOv3
 
 Most existing object detection solutions rely on performing classification in multiple areas of the image, which leads to slower speeds. To solve this problem, the YOLO architecture was developed, which is an acronym for the English words "You Only Look Once." The YOLO architecture is one of the most popular and efficient methods for real-time object detection.
